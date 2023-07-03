@@ -1,13 +1,106 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.dog {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dogIMG {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dog span {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #337ab7;
+  color: white;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #285e8e;
+}
+
+.favourites-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.favourite-item {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.favourite-item img {
+  width: 100px;
+  height: 100px;
+}
+
+.favourite-item span {
+  display: block;
+  text-align: center;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter span,
+.filter select {
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+
+  .dog,
+  .favourite-item {
+    margin: 10px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
 }
