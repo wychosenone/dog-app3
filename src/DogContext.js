@@ -12,17 +12,29 @@ export default function DogProvider({ children }) {
     JSON.parse(localStorage.getItem("favouriteList")) || []
   );
 
-  const handleFavouriteList = (id, checked) => {
+//   const handleFavouriteList = (id, checked) => {
+//     if (checked) {
+//       const newFavourites = [...favouriteList, breeds[dogNum]];
+//       setFavouriteList(newFavourites);
+//       localStorage.setItem("favouriteList", JSON.stringify(newFavourites));
+//     } else {
+//       const newFavourites = favouriteList.filter((dog) => dog.id !== id);
+//       setFavouriteList(newFavourites);
+//       localStorage.setItem("favouriteList", JSON.stringify(newFavourites));
+//     }
+//   };
+const handleFavouriteList = (dog, checked) => {
     if (checked) {
-      const newFavourites = [...favouriteList, breeds[dogNum]];
+      const newFavourites = [...favouriteList, dog];
       setFavouriteList(newFavourites);
       localStorage.setItem("favouriteList", JSON.stringify(newFavourites));
     } else {
-      const newFavourites = favouriteList.filter((dog) => dog.id !== id);
+      const newFavourites = favouriteList.filter((item) => item.id !== dog.id);
       setFavouriteList(newFavourites);
       localStorage.setItem("favouriteList", JSON.stringify(newFavourites));
     }
   };
+  
 
   const removeFromFavouriteList = (id) => {
     const newFavourites = favouriteList.filter((dog) => dog.id !== id);

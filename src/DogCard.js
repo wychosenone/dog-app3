@@ -4,13 +4,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {CardActionArea, CardActions,Checkbox } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { DogContext } from './DogContext';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import {CardActionArea, CardActions,Checkbox } from '@mui/material';
 
 export const DogCard = () => {
 
@@ -27,8 +27,9 @@ export const DogCard = () => {
 
 
     return (
-      <Card sx={{ maxWidth: 600, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <Card sx={{ maxWidth: 600, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', boxShadow:"3"}}>
         <CardActionArea
+         sx={{display:"flex", flexDirection:'column', alignItems:"center"}}
           onClick={() =>
             navigate(
               `/dog-detail/${
@@ -44,7 +45,6 @@ export const DogCard = () => {
             sx={{
                 height: 400,
                 objectFit: 'fill',
-                
               }}
             image={
               breedGroup === "All"
@@ -62,17 +62,17 @@ export const DogCard = () => {
               {selectedBreeds[dogNum].name}
             </Typography>
           </CardContent>
-        </CardActionArea>
-        <CardActions>
+          <CardActions>
           <IconButton
-            onClick={(e) =>
-              handleFavouriteList(
-                selectedBreeds[dogNum].id,
-                !favouriteList.some(
-                  (dog) => dog.id === selectedBreeds[dogNum].id
+            onClick={(e) => {
+                e.stopPropagation();
+                handleFavouriteList(
+                  selectedBreeds[dogNum],
+                  !favouriteList.some(
+                    (item) => item.id === selectedBreeds[dogNum].id
+                  )
                 )
-              )
-            }
+              }}
             size="small"
             color={
               favouriteList.some((dog) => dog.id === selectedBreeds[dogNum].id)
@@ -89,6 +89,7 @@ export const DogCard = () => {
             )}
           </IconButton>
         </CardActions>
+        </CardActionArea>  
       </Card>
     );
 

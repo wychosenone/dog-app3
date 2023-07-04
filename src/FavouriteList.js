@@ -11,11 +11,11 @@ export const FavouritesList = () => {
     return (
       <div style={{ padding: '2rem' }}>
         <Button variant="outlined" onClick={()=> navigate(-1)}>Back</Button>
-        <Typography variant="h4" style={{ marginBottom: '2rem', marginTop: '1rem' }}>Favourites:</Typography>
+        <Typography variant="h4" style={{ marginBottom: '2rem', marginTop: '1rem',marginLeft:"45%"}}>Favourites:</Typography>
         <Grid container spacing={3}>
           {favouriteList.map((dog, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <Card sx={{"&:hover": { transform: "scale(1.05)" , transition:"linear"}}} onClick={() => navigate(`/dog-detail/${dog.id}`)}>
+              <Card sx={{"&:hover": { transform: "scale(1.05)" , transition:"ease", backgroundColor:"lightgray"}}} onClick={() => navigate(`/dog-detail/${dog.id}`)}>
                 <CardMedia
                   component="img"
                   height="200"
